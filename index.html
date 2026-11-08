@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenCorral · The open project</title>
+<meta name="description" content="The OpenCorral open project: the code, the design documents, the roadmap and how changes are judged. Apache-2.0.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="OpenCorral open project home">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="2" y="2" width="24" height="24" rx="6" stroke="currentColor" stroke-width="2.4"/><path d="M8 10.5h12M8 17.5h12" stroke="#b45c3d" stroke-width="2.4" stroke-linecap="round"/></svg>
+      OpenCorral <span style="color:var(--muted);font-weight:500">.org</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#start">Start</a>
+      <a href="#documents">Documents</a>
+      <a href="#status">Status</a>
+      <a href="#contribute">Contribute</a>
+      <a href="https://github.com/eigenforma/opencorral">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <p class="eyebrow">The open project</p>
+    <h1>OpenCorral, built in the open<span class="dot">.</span></h1>
+    <p class="lede">The code, the design and the rules for changing them. OpenCorral is a local station that holds your result above the harnesses and models doing the work, and accepts nothing until the evidence passes. Why it exists is at <a href="https://opencorral.com">opencorral.com</a>.</p>
+    <div class="actions">
+      <a class="button primary" href="https://github.com/eigenforma/opencorral">Code on GitHub</a>
+      <a class="button" href="#contribute">Contribute</a>
+    </div>
+  </div>
+
+  <section id="start">
+    <div class="wrap two">
+      <div>
+        <h2>Start<span class="dot">.</span></h2>
+        <p>You need Node 24.14.1 or later in the 24.x line. Python 3.10 or later is needed only for the conformance bench. The station listens only on your own machine, at http://127.0.0.1:4317.</p>
+        <p>To look around before using it on real work, seed a separate store of clearly labelled sample data and start the station against that.</p>
+      </div>
+      <div>
+<pre><code>git clone https://github.com/eigenforma/opencorral.git
+cd opencorral
+npm ci
+npm run build
+npm start
+
+# or, with sample data
+npm run demo
+npm start -- --data-dir demo-data</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="documents">
+    <div class="wrap">
+      <h2>Documents<span class="dot">.</span></h2>
+      <p class="section-intro">The design comes before the code, and the code is built to it. Each document states its rules plainly; the roadmap alone records what exists.</p>
+      <div class="grid">
+        <a class="card" href="https://github.com/eigenforma/opencorral/blob/main/docs/CHARTER.md"><h3>Charter</h3><p>The principles, and the waterline between a corral and a harness.</p></a>
+        <a class="card" href="https://github.com/eigenforma/opencorral/blob/main/docs/ARCHITECTURE.md"><h3>Architecture</h3><p>The design the code is built to: records, authority, assessment and acceptance.</p></a>
+        <a class="card" href="https://github.com/eigenforma/opencorral/blob/main/docs/IMPLEMENTATION_PLAN.md"><h3>Implementation plan</h3><p>Seven bounded slices, S0 to S6, and the evidence that ends each one.</p></a>
+        <a class="card" href="https://github.com/eigenforma/opencorral/blob/main/docs/CORE_CONTRACT.md"><h3>Core contract</h3><p>The first kernel's boundaries, commands and acceptance transaction.</p></a>
+        <a class="card" href="https://github.com/eigenforma/opencorral/blob/main/docs/ROADMAP.md"><h3>Roadmap</h3><p>What exists, what is partial, and what has not started.</p></a>
+        <a class="card" href="https://github.com/eigenforma/opencorral/blob/main/docs/IMPLEMENTATION-NOTES.md"><h3>Implementation notes</h3><p>What the tests and the conformance bench establish, and what they do not.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="status">
+    <div class="wrap">
+      <h2>Status<span class="dot">.</span></h2>
+      <p class="section-intro">A slice is done only when its exit evidence exists.</p>
+      <div class="table-box">
+        <table class="status">
+          <thead><tr><th scope="col">Slice</th><th scope="col">Status</th><th scope="col">What is owed</th></tr></thead>
+          <tbody>
+            <tr><td>S0. The boundary and the evidence path</td><td><span class="tag partial">Partial</span></td><td>A faithful harvest of real harness records, the remaining validator engines, and a clean Windows packaging spike.</td></tr>
+            <tr><td>S1. One result from intake to acceptance</td><td><span class="tag landed">Landed</span></td><td>One real objective carried by two services, with a non-code contribution and a genuine defect caught and corrected.</td></tr>
+            <tr><td>S2. Resources and one automated service</td><td><span class="tag">Not started</span></td><td>Shared budgets and capacity, a durable command outbox, the first adapter.</td></tr>
+            <tr><td>S3. Independent evaluation</td><td><span class="tag">Not started</span></td><td>Evaluation packs, receipts, and checks the builder never sees.</td></tr>
+            <tr><td>S4 to S6. Planning, routing, distribution</td><td><span class="tag">Not started</span></td><td>Interchangeable planning providers, routing on measured outcomes, an installer a stranger can use.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fineprint">Contract schemas will be published under opencorral.org/schemas/ as they stabilise.</p>
+    </div>
+  </section>
+
+  <section id="contribute">
+    <div class="wrap">
+      <h2>How changes are judged<span class="dot">.</span></h2>
+      <p class="section-intro">The project holds its own code to the standard it asks of agents. The same rules apply whether a person or an agent wrote the change.</p>
+      <div class="grid">
+        <div class="card"><h3>Tests seen failing first</h3><p>A test for new behavior fails on the code before the change and passes after it. Guards that pin existing behavior are declared as guards.</p></div>
+        <div class="card"><h3>Gates green</h3><p>Type check, build, tests and the conformance bench pass locally and again in continuous integration.</p></div>
+        <div class="card"><h3>Honest claims</h3><p>Say what ran, what was inferred and what was not measured. Synthetic data is labelled synthetic.</p></div>
+        <div class="card"><h3>A person approves</h3><p>A human maintainer approves every merge. Reviews grade the change, never the person.</p></div>
+      </div>
+      <p class="not-yet">Every commit carries a <a href="https://developercertificate.org/">Developer Certificate of Origin</a> sign-off (<code>git commit -s</code>); you keep the copyright in your contribution and license it under Apache-2.0. No paid work or equity is on offer today. Start with <a href="https://github.com/eigenforma/opencorral/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> and the <a href="https://github.com/eigenforma/opencorral/issues">open issues</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>OpenCorral is open source under the Apache License 2.0. The OpenCorral name is a trademark of Scott E. Frias; the license grants no rights to it.</p>
+    <p><a href="https://github.com/eigenforma/opencorral">GitHub</a> · <a href="https://opencorral.com">opencorral.com</a> · An <a href="https://eigenforma.com">Eigenforma</a> project</p>
+  </div>
+</footer>
+</body>
+</html>
