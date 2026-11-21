@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The work above the waterline · OpenCorral</title>
+<meta name="description" content="Five pieces of open work that build OpenCorral's capability record: a local record, from your own work, of which harness and model pairing succeeds at which kind of task. For developers who want to own one.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="OpenCorral open project home">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="2" y="2" width="24" height="24" rx="6" stroke="currentColor" stroke-width="2.4"/><path d="M8 10.5h12M8 17.5h12" stroke="#b45c3d" stroke-width="2.4" stroke-linecap="round"/></svg>
+      OpenCorral <span style="color:var(--muted);font-weight:500">.org</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#start">Start</a>
+      <a href="/#documents">Documents</a>
+      <a href="/#status">Status</a>
+      <a href="/work/" aria-current="page">The work</a>
+      <a href="https://github.com/eigenforma/opencorral">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <p class="eyebrow">For developers</p>
+    <h1>The work above the waterline<span class="dot">.</span></h1>
+    <p class="lede">OpenCorral is an open-source station that sits above the coding and media harnesses people already use. The part no tool ships yet is a local record, built from your own work, of which harness and model pairing succeeds at which kind of task. This page sets out the five pieces of work that build that record, so you can pick one to own.</p>
+    <div class="actions">
+      <a class="button primary" href="#lanes">See the five lanes</a>
+      <a class="button" href="#join">How to join</a>
+    </div>
+  </div>
+
+  <section id="waterline">
+    <div class="wrap">
+      <h2>Where the line falls<span class="dot">.</span></h2>
+      <p class="section-intro">The project's charter draws a waterline. Below it, functionality is commodity, shipped by harness vendors and by many open projects, and OpenCorral builds none of it. Above it is the work that only a layer seeing every harness's results can do.</p>
+      <div class="layers" role="list" aria-label="Four layers of the coding agent stack, top to bottom">
+        <div class="layer top" role="listitem">
+          <h3>Learns which pairing succeeds at which task</h3>
+          <p>On your own work, graded by checks the builder never saw, and used to recommend who gets the next job. We have found no tool that keeps this record locally.<span class="where">OpenCorral slices S3 and S5 · not started</span></p>
+        </div>
+        <div class="layer" role="listitem">
+          <h3>Accepts one result on evidence</h3>
+          <p>A builder's report of done is a claim, and a separate check decides. Many open tools now do this.<span class="where">OpenCorral slice S1 · running</span></p>
+        </div>
+        <div class="waterline" role="presentation">Waterline: below this line is commodity</div>
+        <div class="layer" role="listitem">
+          <h3>Runs and governs many agents</h3>
+          <p>Execution orchestrators and meta-harnesses: parallel agents, worktrees, pull requests, spend policies. OpenCorral is designed to plug in above them.</p>
+        </div>
+        <div class="layer" role="listitem">
+          <h3>Harness: one model, one tool loop</h3>
+          <p>Claude Code, Codex, Cursor, OpenCode, Gemini CLI and others. OpenCorral works with them by relay today and never replaces them.</p>
+        </div>
+      </div>
+      <p class="not-yet">The acceptance gate sits above the line, and it is now shared ground. Research agrees it matters: <a href="https://arxiv.org/abs/2607.14890">Proof-or-Stop</a> (July 2026) reports that its evidence-gated loop cut the injected cases that passed visible tests and failed hidden ones from 31 of 1,800 under a compute-budgeted naive loop to 2 of 1,800. OpenCorral has the gate because the record needs it. The record is the reason the project exists.</p>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap two">
+      <div>
+        <h2>Why a record<span class="dot">.</span></h2>
+        <p>Pairings can differ on the same work in ways their own tests do not show. In the project's first paired run, six builds of one task all passed their own tests and the project's full verification, and hidden checks still found a defect in three of them.</p>
+        <p>Outside the project, <a href="https://dev.to/peter_vanonselen_e86eab6/show-your-work-40hg">Peter van Onselen</a> graded six harness and model pairings, five runs each, against a hidden test suite. Swapping the model inside one harness moved its score from 85 to 97 of 100.</p>
+        <p>Public benchmarks score pairings on shared tasks. A person choosing who gets the next job needs the same measurement on their own kinds of work, kept on their own machine.</p>
+      </div>
+      <div>
+        <h2>Words used here<span class="dot">.</span></h2>
+        <dl class="terms">
+          <dt>Pairing</dt><dd>One harness, one model and one configuration on one machine. The charter also calls it an employee.</dd>
+          <dt>Objective</dt><dd>What you want made, with the outputs it requires and the criteria that decide acceptance.</dd>
+          <dt>Capability surface</dt><dd>The record the project is building: outcomes counted by pairing, by kind of task and by machine, each count shown with its denominator and its unknowns. The charter calls a pairing's demonstrated range its sapescape.</dd>
+          <dt>Private checks</dt><dd>Tests or probes written by someone other than the builder and kept from the builder, so the builder cannot aim at them.</dd>
+          <dt>Steward</dt><dd>The person who owns the objective and makes the judgments a machine cannot.</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="today">
+    <div class="wrap">
+      <h2>What runs today<span class="dot">.</span></h2>
+      <p class="section-intro">The repository holds a working local preview of slice S1: about 1,300 lines of TypeScript with no runtime dependencies, a SQLite journal on Node 24, and a station served only on your own machine. Its 13 tests pass, payload validators in Node and Python agree on 56 cases, and continuous integration runs on Ubuntu and Windows.</p>
+      <p class="not-yet" style="margin-top:0">It records each objective, each work order relayed to a service, each returned file as exact bytes with a SHA-256 hash, each check and judgment, and each acceptance decision, and it exports all of it as JSON. Those records are the raw rows the capability surface will be built from.</p>
+    </div>
+  </section>
+
+  <section id="lanes">
+    <div class="wrap">
+      <h2>The five lanes<span class="dot">.</span></h2>
+      <p class="section-intro">Each lane belongs to a slice of the <a href="https://github.com/eigenforma/opencorral/blob/main/docs/IMPLEMENTATION_PLAN.md">implementation plan</a>, which states the evidence that ends it. A lane is a part you can own.</p>
+      <div class="lanes">
+
+        <article class="lane" id="record">
+          <header><span class="num">1</span><h3>The capability record</h3><span class="tag">Slice S5</span></header>
+          <dl>
+            <dt>Above the line</dt><dd>Public benchmarks score pairings on shared tasks. The record on a person's own work can only be built by a layer that sees every harness's results.</dd>
+            <dt>What exists</dt><dd>S1 records attempts, services, exact results, assessments and acceptance, and exports them as JSON.</dd>
+            <dt>What is owed</dt><dd>A coarse, versioned task descriptor. Projections that keep task counts apart from attempt counts and first-pass success apart from eventual success. Unassessed and excluded cases kept visible, and unknown costs never shown as zero. A station view that explains why each candidate pairing was considered or excluded. One Python instrument over the same JSON contracts.</dd>
+            <dt>A first piece</dt><dd><a href="https://github.com/eigenforma/opencorral/issues/7">Issue #7</a>: a Python instrument that reads an exported record and reports outcome counts by pairing and kind of task, every rate with its denominator, and no ranking. With it, a test design for routing: before the project claims routing helps, routed choices are compared against a baseline that keeps the same verified handoff.</dd>
+            <dt>Suits</dt><dd>Python, statistics on small samples, honest reporting.</dd>
+          </dl>
+        </article>
+
+        <article class="lane" id="private-checks">
+          <header><span class="num">2</span><h3>Checks the builder never sees</h3><span class="tag">Slice S3</span></header>
+          <dl>
+            <dt>Above the line</dt><dd>A published check is a target. We have found private checks in benchmarks and in one personal rig, and in no product a person can point at their own work.</dd>
+            <dt>What exists</dt><dd>The project's first paired run sealed its hidden checks outside every repository before the builders started, and its work order carried only their hash. That is procedure, and the product does not do it yet.</dd>
+            <dt>What is owed</dt><dd>An evaluation-pack interface. A code pack in which a new-behavior test fails on the base and passes on the candidate, while a regression guard passes on both. Receipts built by a trusted controller. Candidate code run as hostile code, with bounded inputs and limited feedback. A protected boundary, such as a separate Windows account or an encrypted store whose key never reaches an agent's process. A procedural mode stays available and is labelled weaker.</dd>
+            <dt>A first piece</dt><dd><a href="https://github.com/eigenforma/opencorral/issues/8">Issue #8</a>: the evaluation-pack interface and a code pack that runs a sealed check set against a candidate in a container. <a href="https://github.com/harbor-framework/harbor">Harbor</a>, an Apache-2.0 evaluation framework from the creators of Terminal-Bench, already runs agents and custom benchmarks in containers, and it is the first runner to evaluate before writing one.</dd>
+            <dt>Suits</dt><dd>TypeScript, process isolation on Windows and Linux, containers, test runners.</dd>
+          </dl>
+        </article>
+
+        <article class="lane" id="non-code">
+          <header><span class="num">3</span><h3>Acceptance for results that are not code</h3><span class="tag">Slice S3</span></header>
+          <dl>
+            <dt>Above the line</dt><dd>Every acceptance tool we have read is built for code. People already combine services for images, narration, video and text, and they need the same rule for each part and for the whole.</dd>
+            <dt>What exists</dt><dd>S1 imports any file as exact bytes, runs simple deterministic checks (a non-empty file, a required text), and records the steward's judgment for the rest.</dd>
+            <dt>What is owed</dt><dd>A media and document pack (image dimensions and format, audio and video duration and codec, document structure) that reports pass, fail, unknown or error. Integration checks over a result's parts, so inputs that each pass can still produce a rejected whole. Safe previews in the station that never run a file as code.</dd>
+            <dt>A first piece</dt><dd><a href="https://github.com/eigenforma/opencorral/issues/9">Issue #9</a>, an assessment pack for images, together with <a href="https://github.com/eigenforma/opencorral/issues/5">issue #5</a>, safe previews.</dd>
+            <dt>Suits</dt><dd>TypeScript, media formats, careful parsing of untrusted files.</dd>
+          </dl>
+        </article>
+
+        <article class="lane" id="judgment">
+          <header><span class="num">4</span><h3>The steward's judgment as evidence</h3><span class="tag">Slices S1, S3 and S5</span></header>
+          <dl>
+            <dt>Above the line</dt><dd>Meaning and taste need a person. The tools we have read end in a review state or an approve button. OpenCorral records the judgment as attributed evidence on a criterion, bound to the exact bytes judged, so the record can count it.</dd>
+            <dt>What exists</dt><dd>Judgments are recorded as the steward's, on a criterion, for an exact result.</dd>
+            <dt>What is owed</dt><dd>Rubrics versioned with the objective's contract. A judgment that goes stale when the bytes or the rubric change. Changed preferences, changed rubrics and real defects kept as separate denominators, so a pairing is never charged for a later change in what was wanted.</dd>
+            <dt>A first piece</dt><dd><a href="https://github.com/eigenforma/opencorral/issues/10">Issue #10</a>: versioned rubric criteria, and the station view that shows a judgment beside the bytes it judged.</dd>
+            <dt>Suits</dt><dd>TypeScript, interface design, data modelling.</dd>
+          </dl>
+        </article>
+
+        <article class="lane" id="allotment">
+          <header><span class="num">5</span><h3>Relay and allotment</h3><span class="tag">Slice S2</span></header>
+          <dl>
+            <dt>Above the line</dt><dd>Many services expose no programmatic seam, and subscriptions come in windows. Showing remaining quota is a crowded category. Tying each window to an objective's budget, and refusing to work around a vendor's limits, is the corral's job.</dd>
+            <dt>What exists</dt><dd>The manual relay: copy a work order to any service, then import what comes back.</dd>
+            <dt>What is owed</dt><dd>Shared resource accounts and subscription windows. Reservations against a shared allowance that never count usage twice. An objective budget that covers retries, reviews and replanning. A durable command outbox that recovers from a crash at every step. The first automated adapter, chosen by what each harness actually exposes. The corral never spreads one person's load across several accounts of one vendor and never handles a vendor's login token.</dd>
+            <dt>A first piece</dt><dd><a href="https://github.com/eigenforma/opencorral/issues/6">Issue #6</a>, the first automated adapter, or <a href="https://github.com/eigenforma/opencorral/issues/11">issue #11</a>, the reservation model with its crash-recovery tests.</dd>
+            <dt>Suits</dt><dd>TypeScript, SQLite, recovery and idempotency.</dd>
+          </dl>
+        </article>
+
+      </div>
+      <p class="not-yet">Below the line, OpenCorral is designed to plug in. The acceptance gate is designed to ship as a plugin behind existing execution orchestrators, the private checks can run on an existing evaluation runner, and a model reviewer may advise a grade without ever passing a gate. The seams are in <a href="https://github.com/eigenforma/opencorral/blob/main/docs/ARCHITECTURE.md">the architecture</a>, section 9.</p>
+    </div>
+  </section>
+
+  <section id="neighbors">
+    <div class="wrap">
+      <h2>Neighbors<span class="dot">.</span></h2>
+      <p class="section-intro">Developers ask how OpenCorral differs from tools they already know. Each card describes a neighbor from its own pages and says where OpenCorral stands beside it.</p>
+      <div class="grid">
+        <div class="card"><h3><a href="https://github.com/omnigent-ai/omnigent">Omnigent</a></h3><p>An Apache-2.0 meta-harness <a href="https://www.databricks.com/blog/introducing-omnigent-meta-harness-combine-control-and-share-your-agents">from Databricks</a>, in alpha, over Claude Code, Codex, Cursor, OpenCode and agents you write yourself, with policies that pause for your approval or cap spend. It sits in the same layer above the harnesses. OpenCorral works at that height on the accepted result, and is being built to keep a record of which pairing produced it.</p></div>
+        <div class="card"><h3><a href="https://github.blog/news-insights/company-news/welcome-home-agents/">GitHub Agent HQ</a></h3><p>GitHub's platform for running Copilot, Claude and Codex agents, where a team can <a href="https://itbrief.co.nz/story/github-adds-claude-codex-agents-to-unified-ai-hub">assign one issue to more than one agent to compare results</a>. OpenCorral is being built to keep such comparisons as graded evidence on your own machine, including work done in tools outside GitHub.</p></div>
+        <div class="card"><h3><a href="https://github.com/Keesan12/martin-loop">MartinLoop</a></h3><p>In its own words, the system around the coding job: it launches agent runs, enforces budgets and path limits, and requires fresh verifier evidence bound to the run before completion. OpenCorral leaves the run to the harness, holds the objective across services, and is being built to carry each outcome into a record.</p></div>
+        <div class="card"><h3>Execution orchestrators</h3><p>Agent Orchestrator, Sortie, Bernstein and others run many agents in parallel worktrees and pull requests. OpenCorral is designed to plug in above them, with its acceptance gate shipped as a plugin behind them.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="wrap join">
+      <div>
+        <h2>How to join<span class="dot">.</span></h2>
+        <ol class="steps">
+          <li>Read the <a href="https://github.com/eigenforma/opencorral#readme">README</a>, the <a href="https://github.com/eigenforma/opencorral/blob/main/docs/CHARTER.md">charter</a>, sections 8, 10 and 11 of <a href="https://github.com/eigenforma/opencorral/blob/main/docs/ARCHITECTURE.md">the architecture</a> (acceptance, the operating range, routing), and the slice of the implementation plan your lane belongs to.</li>
+          <li>Open an issue that names your lane and the first piece you would take, or comment on an existing one.</li>
+          <li>Build it the way the project grades agents. A test for new behavior is seen failing before your change and passing after it, guards are declared as guards, the gates pass locally and in continuous integration, and a person approves every merge.</li>
+          <li>Sign every commit with <code>git commit -s</code> under the Developer Certificate of Origin. You keep your copyright and license the work under Apache-2.0.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>What is offered</h3>
+        <p>Credit in the commit history, a lane you own, and the work itself. No paid work or equity is on offer today; anything of that kind will be announced publicly and in writing before it exists.</p>
+        <div class="actions" style="margin-top:20px">
+          <a class="button primary" href="https://github.com/eigenforma/opencorral/issues/new">Open an issue</a>
+          <a class="button" href="https://github.com/eigenforma/opencorral/blob/main/CONTRIBUTING.md">How to contribute</a>
+        </div>
+        <p class="fineprint">Why the project exists, in the steward's words, is at <a href="https://opencorral.com">opencorral.com</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>OpenCorral is open source under the Apache License 2.0. The OpenCorral name is a trademark of Scott E. Frias; the license grants no rights to it.</p>
+    <p><a href="https://github.com/eigenforma/opencorral">GitHub</a> · <a href="https://opencorral.com">opencorral.com</a> · An <a href="https://eigenforma.com">Eigenforma</a> project</p>
+  </div>
+</footer>
+</body>
+</html>
